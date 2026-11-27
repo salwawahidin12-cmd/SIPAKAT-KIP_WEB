@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+    <title>Masuk · SIPAKAT-KIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link href="css/components.css" rel="stylesheet"/>
+    <link href="css/auth.css" rel="stylesheet"/>
+    <link href="css/animasi.css?v=20261124c" rel="stylesheet"/>
+    <link href="css/animasi-login.css?v=20261124c" rel="stylesheet"/>
+  </head>
+  <body>
+    <section id="login">
+      <div class="l">
+        <h1>Sistem Seleksi KIP-Kuliah</h1>
+        <h3 style="font-weight:500;margin:6px 0 12px">Lebih cepat, objektif, dan tepat sasaran</h3>
+        <p>Sistem Pendukung Keputusan kelayakan calon penerima beasiswa, Universitas Khairun, dengan metode Decision Tree C4.5.</p>
+      </div>
+      <div class="r">
+        <div aria-hidden="true" id="lgo">🎓</div>
+        <div id="lw">
+          <form id="lf" onsubmit="return enter(event)">
+<h2>Masuk</h2>
+<div class="roles" id="roles" style="display:none"></div>
+<label for="em">Email / NIM</label><input autocomplete="username" id="em" placeholder="NIM atau email"/>
+<label for="pw">Password</label><div style="position:relative"><input id="pw" placeholder="Kata sandi" type="password"/><button aria-label="Tampilkan password" class="eye" onclick="eye()" type="button"><svg class="ey-on" style="display:none" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="ey-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/><line x1="3" y1="3" x2="21" y2="21"/></svg></button></div><p style="text-align:right;margin:6px 0 0;font-size:13px"><a href="#" onclick="showForgot();return false" style="color:var(--b)">Lupa password?</a></p>
+<div class="note" id="er" style="display:none;margin:8px 0"></div><p><button class="p" style="width:100%">Masuk</button></p><div style="position:relative;width:100%;max-width:360px;height:40px;margin:12px auto"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line,#dadce0);border-radius:8px;background:var(--card,#fff);color:var(--tx,#3c4043);font:500 14px Inter,sans-serif;pointer-events:none"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z"/><path fill="#FBBC05" d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Login dengan Google</div><div id="gbtn" style="position:absolute;inset:0;opacity:0;overflow:hidden;cursor:pointer"></div></div>
+<p style="font-size:13px;color:var(--mut)">Belum punya akun? <a href="#" onclick="showLogin(1);return false" style="color:var(--b)">Daftar di sini</a></p>
+</form>
+          <form id="rg" onsubmit="return reg(event)" style="display:none;width:100%;max-width:340px"><h2>Daftar akun</h2><label>Nama lengkap</label><input id="r1"/><div class="two"><div><label>NIM</label><input id="r2" inputmode="numeric"/></div><div><label>Program studi</label><select id="r3"><option>Informatika</option><option>Teknik Sipil</option></select></div></div><label>Email</label><input id="r4" type="email"/><div class="two"><div><label>Password</label><input id="r5" type="password"/></div><div><label>Konfirmasi password</label><input id="r6" type="password"/></div></div><div class="note" id="rer" style="display:none;margin:8px 0"></div><p><button class="p" style="width:100%">Daftar</button></p><p style="font-size:13px">Sudah punya akun? <a href="#" onclick="showLogin(0);return false" style="color:var(--b)">Masuk</a></p></form>
+          <form id="fg" style="display:none" onsubmit="return false">
+            <h2>Lupa password</h2>
+            <div id="fs1"><p>Masukkan email atau NIM akun Anda. Kode verifikasi dikirim ke email terdaftar.</p><label>Email / NIM</label><input id="fe"/><p><button class="p" onclick="sendK()" style="width:100%" type="button">Kirim kode</button></p></div>
+            <div id="fs2" style="display:none"><p>Kode 6 digit dikirim ke email terdaftar pada akun Anda, berlaku 10 menit. Cek juga folder Spam.</p><label>Kode verifikasi</label><input id="fc" inputmode="numeric" maxlength="6"/><p><button class="p" onclick="fcheck()" style="width:100%" type="button">Verifikasi</button></p><p style="font-size:13px"><a href="#" onclick='toast("Kode dikirim ulang");return false' style="color:var(--b)">Kirim ulang kode</a></p></div>
+            <div id="fs3" style="display:none"><label>Password baru</label><input id="fp1" type="password"/><label>Konfirmasi password</label><input id="fp2" type="password"/><p><button class="p" onclick="fdone()" style="width:100%" type="button">Simpan password</button></p></div>
+            <div class="note" id="fm" style="display:none;margin:8px 0"></div>
+            <p style="font-size:13px"><a href="#" onclick="showLogin(0);return false" style="color:var(--b)">← Kembali ke Login</a></p>
+          </form>
+        </div>
+        <div class="ft2">© 2026 Informatika, Universitas Khairun</div>
+      </div>
+    </section>
+    <div id="toast" role="status"></div>
+    <script src="js/data.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/validasi.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/pages-extra.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth-api.js"></script>
+    <script src="js/main.js"></script>
+<script>
+// Tombol mata: password tersembunyi = mata dicoret; password terlihat = mata biasa.
+function eye(){
+  var p=document.getElementById('pw'),b=document.querySelector('.eye'),t=p.type=='password';
+  p.type=t?'text':'password';
+  b.querySelector('.ey-on').style.display=t?'':'none';
+  b.querySelector('.ey-off').style.display=t?'none':'';
+  b.setAttribute('aria-label',t?'Sembunyikan password':'Tampilkan password');
+}
+</script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </body>
+</html>

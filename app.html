@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+    <title>SIPAKAT-KIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link href="css/components.css" rel="stylesheet"/>
+    <link href="css/topbar.css" rel="stylesheet"/>
+    <link href="css/layout.css" rel="stylesheet"/>
+    <link href="css/modal.css" rel="stylesheet"/>
+    <link href="css/kontras.css?v=20261124c" rel="stylesheet"/>
+    <link href="css/animasi.css?v=20261124c" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="app">
+      <header class="top">
+        <div><button aria-label="Menu" class="s" id="burger" onclick="tg()">≡</button> <h2 style="display:inline">SIPAKAT-KIP</h2><small class="sub">Sistem Seleksi KIP-Kuliah</small></div>
+        <div><span style="position:relative"><button aria-label="Notifikasi" class="s" id="bell" onclick="bell()">🔔<span class="dot"></span></button><div id="bdd"></div></span> <span style="position:relative"><button class="s" onclick="pmenu()">👤 <span id="who" style="display:inline-block;max-width:34vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom"></span> ▾</button><div id="pdd"><a onclick="goP()">Profil</a><a onclick="logout()">Keluar</a></div></span></div>
+      </header>
+      <div class="wrap">
+        <nav class="side" id="nav"></nav>
+        <main id="main"></main>
+      </div>
+    </div>
+    <div id="toast" role="status"></div>
+    <div id="set" onclick="if(event.target==this)closeSet()">
+      <div aria-label="Pengaturan tampilan" class="bx2" role="dialog"><h3>⚙ Pengaturan tampilan</h3><label>Tema</label><div class="sg"><button onclick="setT(0)">Terang</button><button onclick="setT(1)">Gelap</button><button onclick="setT(2)">Otomatis</button></div><label>Ukuran teks</label><div class="sg"><button onclick="setS(0)">Kecil</button><button onclick="setS(1)">Sedang</button><button onclick="setS(2)">Besar</button></div><label>Warna tema</label><div class="sg"><button onclick="setC(0)">Hijau</button><button onclick="setC(1)">Biru</button><button onclick="setC(2)">Abu</button></div><p style="display:flex;gap:8px;justify-content:space-between;margin-top:18px"><button class="o" onclick="rs()">Atur ulang</button><button class="p" onclick="closeSet()">Tutup</button></p></div>
+    </div>
+    <div id="um" onclick="if(event.target==this)closeU()">
+      <div aria-label="Tambah pengguna" class="bx2" role="dialog"><div class="bar" style="margin-bottom:0"><h3>Tambah pengguna</h3><button aria-label="Tutup" class="s" onclick="closeU()" style="padding:4px 10px">✕</button></div><label>Nama lengkap</label><input id="un"/><label>Email (dipakai untuk login)</label><input id="ue" type="email"/><label>Role</label><select id="ur"><option>Petugas Seleksi</option><option>Admin</option></select><label>Password sementara</label><div style="display:flex;gap:6px"><input id="up"/><button class="s" onclick="genP()" style="white-space:nowrap" type="button">Buat otomatis</button></div><small>Minimal 8 karakter. Pengguna wajib menggantinya saat login pertama.</small><label style="display:flex;align-items:center;gap:8px;margin-top:12px"><input checked="" id="ua" style="width:auto" type="checkbox"/> Akun aktif</label><div class="note" id="uerr" style="display:none;margin-top:10px"></div><p style="display:flex;gap:8px;justify-content:space-between;margin-top:16px"><button class="o" onclick="closeU()">Batal</button><button class="p" onclick="saveU()">Simpan</button></p></div>
+    </div>
+    <div id="mm" onclick="if(event.target==this)closeM()">
+      <div aria-modal="true" class="bx2" id="mc" role="dialog"></div>
+    </div>
+    <script src="js/data.js?v=20261124c"></script>
+    <script src="js/helpers.js?v=20261124c"></script>
+    <script src="js/validasi.js?v=20261124c"></script>
+    <script src="js/modal.js?v=20261124c"></script>
+    <script src="js/layout.js?v=20261124c"></script>
+    <script src="js/auth.js?v=20261124c"></script>
+    <script src="js/pages-shared.js?v=20261124c"></script>
+    <script src="js/pages-mahasiswa.js?v=20261124c"></script>
+    <script src="js/pages-admin.js?v=20261124c"></script>
+    <script src="js/pages-petugas.js?v=20261124c"></script>
+    <script src="js/pages-extra.js?v=20261124c"></script>
+    <script src="js/storage.js?v=20261124c"></script>
+    <script src="js/api.js?v=20261124c"></script>
+    <script src="js/auth-api.js?v=20261124c"></script>
+    <script src="js/profil-api.js?v=20261124c"></script>
+    <script src="js/alur-api.js?v=20261124c"></script>
+    <script src="js/admin-api.js?v=20261124c"></script>
+    <script src="js/animasi.js?v=20261124c"></script>
+    <script src="js/main.js?v=20261124c"></script>
+  </body>
+</html>

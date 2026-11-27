@@ -1,0 +1,9 @@
+/* Halaman depan (landing page) */
+.hero{padding:20px;background:var(--gl);border-radius:10px;margin-bottom:16px}
+.nav-links a{margin-right:14px;color:var(--tx)}
+.land-wrap{max-width:960px;margin:auto;padding:28px 20px}
+.hero-row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.hero-text{flex:1;min-width:260px}.hero-text h1{font-size:30px}
+.hero-img{flex:1;min-width:220px;max-width:440px;width:100%;height:auto;border-radius:12px}
+.flow{display:flex;gap:10px;flex-wrap:wrap}.flow .card{flex:1;margin:0}.flow .arr{align-self:center}
+.land-foot{text-align:center;color:var(--mut);margin-top:28px}

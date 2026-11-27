@@ -1,0 +1,3 @@
+# Folder unggahan tidak boleh dibuka lewat URL. Berkas hanya dilayani oleh api/berkas.php
+# setelah memeriksa login dan kepemilikan.
+Require all denied

@@ -1,0 +1,45 @@
+/* kontras.css : memperjelas tulisan di semua tema (terang, gelap) dan semua warna utama (hijau, biru, abu-abu).
+   Dimuat PALING AKHIR di app.html supaya aturannya menang atas base.css dan components.css.
+   Ide utamanya: warna utama --g dipakai sebagai LATAR (tombol, sidebar). Untuk TULISAN dipakai --gt,
+   yang di mode gelap dibuat terang agar terbaca di atas latar hitam. */
+
+/* ---- Mode terang (dan bawaan) ---- */
+:root{--gt:var(--g)}
+:root[data-warna="1"]{--gl:#eff6ff}
+:root[data-warna="2"]{--gl:#f3f4f6}
+:root[data-warna="1"] .side a:not(.on),:root[data-warna="2"] .side a:not(.on){color:#e5e7eb}
+
+/* Teks aksen memakai --gt, bukan --g */
+.stat b,.top h2,.tabs .on{color:var(--gt)}
+.tabs .on{border-bottom-color:var(--gt)}
+
+/* Label status (badge): teks gelap di atas kuning, warna lain digelapkan supaya teks putih terbaca */
+/* Penyebab badge "Belum dikirim" pudar: aturan .stat span (warna abu) mengalahkan warna putih .badge. Dipertegas di sini. */
+.badge,.stat span.badge{color:#fff}
+.b-wait,.stat span.b-wait{background:#fbbf24;color:#1c1100}
+.b-fix{background:#c2410c}
+.b-ok{background:#15803d}
+
+/* ---- Mode gelap: latar hitam pekat ---- */
+:root[data-theme="dark"]{--bg:#000;--card:#0b0b0b;--tx:#f5f5f5;--mut:#a8a8a8;--line:#2b2b2b;--b:#7cb7ff;--gt:#4ade80;--gl:#04210f}
+:root[data-theme="dark"]{--gt:#4ade80;--gl:#04210f}
+:root[data-theme="dark"][data-warna="1"]{--gt:#93c5fd;--gl:#0a1633}
+:root[data-theme="dark"][data-warna="2"]{--gt:#e5e7eb;--gl:#171717}
+:root[data-theme="dark"] .card{border:1px solid var(--line);box-shadow:none}
+:root[data-theme="dark"] .side a{color:#e5e7eb}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]){--bg:#000;--card:#0b0b0b;--tx:#f5f5f5;--mut:#a8a8a8;--line:#2b2b2b;--b:#7cb7ff;--gt:#4ade80;--gl:#04210f}
+:root:not([data-theme="light"]){--gt:#4ade80;--gl:#04210f}
+:root:not([data-theme="light"])[data-warna="1"]{--gt:#93c5fd;--gl:#0a1633}
+:root:not([data-theme="light"])[data-warna="2"]{--gt:#e5e7eb;--gl:#171717}
+:root:not([data-theme="light"]) .card{border:1px solid var(--line);box-shadow:none}
+:root:not([data-theme="light"]) .side a{color:#e5e7eb}
+}
+
+/* Tombol di mode gelap: tulisan putih tetap kontras di atas warna utama; tombol garis memakai warna terang */
+:root[data-theme="dark"] .o{color:var(--gt);border-color:var(--gt)}
+:root[data-theme="dark"] .top h2{color:var(--gt)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .o{color:var(--gt);border-color:var(--gt)}:root:not([data-theme="light"]) .top h2{color:var(--gt)}}
+
+/* Nama periode aktif di Dashboard: warna tulisan biasa (putih di mode gelap, gelap di mode terang) supaya paling jelas di semua tema */
+.stat b.per-nama{color:var(--tx)}

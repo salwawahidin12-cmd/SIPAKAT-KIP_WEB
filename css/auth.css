@@ -1,0 +1,18 @@
+/* Halaman login, registrasi, lupa password, animasi logo */
+/* login */
+#login{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+#login .l{background:var(--g);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:center}
+#login .l h1{font-size:40px;line-height:1.15}
+#login .r{display:flex;align-items:center;justify-content:center;padding:32px;background:var(--card)}
+#login form{width:100%;max-width:340px}
+.roles{display:flex;gap:6px;margin:8px 0}
+.roles button{flex:1;padding:8px 4px;background:var(--bg);color:var(--tx);border-color:var(--line);font-size:13px}
+.roles button.on{background:var(--g);color:#fff;border-color:var(--g)}
+@media(max-width:760px){#login{grid-template-columns:1fr}#login .l{padding:28px}}
+#login .r{position:relative;overflow:hidden;padding-top:96px}
+#lgo{position:absolute;left:50%;top:50%;width:84px;height:84px;border-radius:50%;background:var(--g);color:#fff;font-size:42px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.25);animation:lgo 2.4s ease both}
+@keyframes lgo{0%{opacity:0;top:50%;transform:translate(-50%,-50%) rotate(0) scale(1.9)}15%{opacity:1}45%{top:50%;transform:translate(-50%,-50%) rotate(360deg) scale(1.9)}100%{opacity:1;top:56px;transform:translate(-50%,-50%) rotate(360deg) scale(.6)}}
+@keyframes up{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
+#lw{width:100%;max-width:340px}
+@media(prefers-reduced-motion:reduce){#lgo,#lf>*,#rg>*{animation:none!important}#lgo{top:56px;transform:translate(-50%,-50%) scale(.6)}}
+.ft2{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:var(--mut);font-size:12px}

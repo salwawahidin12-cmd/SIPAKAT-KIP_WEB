@@ -1,0 +1,8 @@
+/* Bilah atas (judul, lonceng, menu profil, dropdown) */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.top h2{font-size:17px;color:var(--g)}
+:root[data-theme="dark"] .top h2{color:#86efac}
+.sub{color:var(--mut);margin-left:8px;font-size:12px}
+#bell{position:relative}.dot{position:absolute;top:2px;right:4px;width:8px;height:8px;border-radius:50%;background:var(--no)}
+#pdd{display:none;position:absolute;right:0;top:100%;margin-top:6px;background:var(--card);border:1px solid var(--line);border-radius:8px;min-width:140px;z-index:6;box-shadow:0 4px 12px rgba(0,0,0,.15)}#pdd.on{display:block}#pdd a{display:block;padding:9px 14px;cursor:pointer;color:var(--tx)}#pdd a:hover{background:var(--bg)}
+#bdd{display:none;position:absolute;right:0;top:100%;margin-top:6px;width:300px;background:var(--card);border:1px solid var(--line);border-radius:8px;z-index:6;box-shadow:0 4px 12px rgba(0,0,0,.15)}#bdd.on{display:block}#bdd div{padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px;text-align:left}#bdd a{display:block;padding:10px 14px;text-align:center;color:var(--b);cursor:pointer}

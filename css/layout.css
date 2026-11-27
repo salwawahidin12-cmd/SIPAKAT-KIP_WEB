@@ -1,0 +1,16 @@
+/* Kerangka aplikasi: sidebar, area utama, footer */
+/* shell */
+#app{display:none;min-height:100vh}
+.wrap{display:flex;min-height:calc(100vh - 56px)}
+.side{width:230px;background:var(--g);padding:16px 10px;flex-shrink:0}
+.side a{display:block;color:#d1fae5;padding:10px 14px;border-radius:8px;cursor:pointer;margin-bottom:2px}
+.side a:hover{background:rgba(255,255,255,.1)}
+.side a.on{background:rgba(255,255,255,.2);color:#fff;font-weight:600}
+main{flex:1;padding:24px;min-width:0}
+main h1{font-size:22px}.crumb{color:var(--mut);font-size:13px;margin:2px 0 18px}
+#burger{display:none}
+@media(max-width:760px){.side{position:fixed;top:calc(56px + env(safe-area-inset-top,0px));bottom:0;left:-240px;z-index:4;transition:left .2s}.side.open{left:0}#burger{display:inline-block}}
+.side{display:flex;flex-direction:column}
+.gear{margin-top:auto;align-self:flex-start;width:36px;height:36px;padding:0;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:18px}.gear:hover{background:rgba(255,255,255,.3)}
+#burger{display:inline-block}.side.hide{display:none}
+main{display:flex;flex-direction:column}.ft{margin-top:auto;padding-top:28px;text-align:center;color:var(--mut);font-size:12px}.ft span{display:block;border-top:1px solid var(--line);padding-top:14px}

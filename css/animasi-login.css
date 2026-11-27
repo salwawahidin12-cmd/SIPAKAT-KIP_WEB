@@ -1,0 +1,14 @@
+/* animasi-login.css : animasi tambahan khusus halaman login (selain logo yang sudah ada di auth.css). */
+@keyframes dariKiri { from { opacity: 0; transform: translateX(-40px) } to { opacity: 1; transform: none } }
+@keyframes mengambang { 0%, 100% { transform: translate(0,0) scale(1) } 50% { transform: translate(24px,-28px) scale(1.08) } }
+
+/* Panel hijau: teks masuk dari kiri berurutan, dua lingkaran lembut melayang di latar */
+#login .l { position: relative; overflow: hidden }
+#login .l > * { position: relative; z-index: 1; animation: dariKiri .7s cubic-bezier(.2,.8,.2,1) backwards }
+#login .l > :nth-child(1) { animation-delay: .15s } #login .l > :nth-child(2) { animation-delay: .3s } #login .l > :nth-child(3) { animation-delay: .45s }
+#login .l::before, #login .l::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255,255,255,.07); pointer-events: none }
+#login .l::before { width: 360px; height: 360px; right: -120px; top: -110px; animation: mengambang 9s ease-in-out infinite }
+#login .l::after  { width: 240px; height: 240px; left: -70px; bottom: -80px; animation: mengambang 11s ease-in-out infinite reverse }
+
+/* Tombol Masuk menyala sedikit saat disentuh */
+#login form button.p:not(:disabled):hover { box-shadow: 0 6px 16px rgba(0,0,0,.22) }

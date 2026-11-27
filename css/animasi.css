@@ -1,0 +1,106 @@
+/* animasi.css : gerak halus supaya tampilan terasa hidup. Hanya memakai CSS (transform dan opacity), jadi ringan.
+   Semua animasi dimatikan otomatis kalau perangkat diatur "kurangi gerakan" (lihat bagian paling bawah). */
+
+@keyframes naik   { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+@keyframes muncul { from { opacity: 0; transform: scale(.94) }       to { opacity: 1; transform: none } }
+@keyframes pop    { 0% { transform: scale(.6); opacity: 0 } 70% { transform: scale(1.08) } 100% { transform: scale(1); opacity: 1 } }
+@keyframes geser  { from { opacity: 0; transform: translateX(-10px) } to { opacity: 1; transform: none } }
+@keyframes turun  { from { opacity: 0; transform: translateY(-10px) } to { opacity: 1; transform: none } }
+@keyframes denyut { 0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,.55) } 50% { box-shadow: 0 0 0 7px rgba(251,191,36,0) } }
+
+/* 1) Isi halaman muncul dari bawah, berurutan (judul, kotak info, lalu kartu).
+      "backwards" artinya animasi hanya mengatur kondisi awal; hover tetap bisa mengubah transform sesudahnya. */
+main > :not(.grid):not(.flow):not(.ft) { animation: naik .45s ease backwards }
+main > :nth-child(2) { animation-delay: .05s }
+main > :nth-child(3) { animation-delay: .1s }
+main > :nth-child(4) { animation-delay: .15s }
+main > :nth-child(n+5) { animation-delay: .2s }
+
+/* 2) Kartu di dalam grid (mis. Status, Periode, tahap 1-4 di Dashboard) muncul satu per satu */
+.grid > .card, .flow > .card { animation: muncul .5s cubic-bezier(.2,.8,.2,1) backwards }
+.grid > .card:nth-child(1), .flow > .card:nth-child(1) { animation-delay: .10s }
+.grid > .card:nth-child(2), .flow > .card:nth-child(2) { animation-delay: .20s }
+.grid > .card:nth-child(3), .flow > .card:nth-child(3) { animation-delay: .30s }
+.grid > .card:nth-child(4), .flow > .card:nth-child(4) { animation-delay: .40s }
+.grid > .card:nth-child(n+5), .flow > .card:nth-child(n+5) { animation-delay: .5s }
+
+/* 3) Kartu terangkat sedikit saat disentuh kursor */
+.card { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease }
+.grid > .card:hover, .flow > .card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.12) }
+
+/* 4) Label status (Aktif, Belum dikirim, dst.) muncul dengan efek pop */
+.badge { animation: pop .45s cubic-bezier(.2,.9,.3,1.3) .35s backwards }
+
+/* 5) Tombol: naik saat disentuh, menekan saat diklik */
+button { transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease, filter .2s ease }
+button:not(:disabled):hover { transform: translateY(-1px); filter: brightness(1.08) }
+button:not(:disabled):active { transform: translateY(0) scale(.97); filter: none }
+.eye:hover, .eye:active, .gear:hover { transform: none }
+
+/* 6) Tombol utama pendaftaran berdenyut halus supaya mahasiswa tahu langkah berikutnya */
+main > p[style*="margin-top:16px"] > button.p { animation: denyut 2.6s ease-in-out 1.2s 3 }
+
+/* 7) Menu sidebar: bergeser sedikit saat disentuh, dan muncul bergantian saat halaman dibuka */
+.side a { transition: background-color .2s ease, padding-left .2s ease, color .2s ease }
+.side a:hover { padding-left: 20px }
+.side a { animation: geser .4s ease backwards }
+.side a:nth-child(1) { animation-delay: .05s } .side a:nth-child(2) { animation-delay: .10s }
+.side a:nth-child(3) { animation-delay: .15s } .side a:nth-child(4) { animation-delay: .20s }
+.side a:nth-child(5) { animation-delay: .25s } .side a:nth-child(n+6) { animation-delay: .3s }
+
+/* 8) Langkah form pendaftaran (1 Data diri, 2 Data kriteria, 3 Berkas) berpindah dengan lembut */
+.steps span { transition: background-color .25s ease, color .25s ease, transform .25s ease }
+.steps .on { transform: scale(1.05) }
+.steps + .card > * { animation: naik .35s ease backwards }
+
+/* 9) Tabel: baris muncul bergantian, dan menyala saat disentuh */
+table tr { transition: background-color .15s ease }
+table tr:hover td { background: rgba(127,127,127,.08) }
+table tr td { animation: naik .35s ease backwards }
+table tr:nth-child(2) td { animation-delay: .05s } table tr:nth-child(3) td { animation-delay: .10s }
+table tr:nth-child(4) td { animation-delay: .15s } table tr:nth-child(n+5) td { animation-delay: .2s }
+
+/* 10) Jendela pop-up, pengaturan tampilan, notifikasi, menu profil, dan toast */
+#set:not([style*="none"]) { animation: fade .2s ease }
+#set .bx2, #mc, #um > *, #mm > * { animation: muncul .25s cubic-bezier(.2,.8,.2,1) }
+#bdd.on, #pdd.on, #pdd[style*="block"] { animation: turun .2s ease }
+#toast { animation: naik .3s ease }
+@keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+
+/* 11) Titik merah lonceng berdenyut */
+@keyframes titik { 0%, 100% { transform: scale(1) } 50% { transform: scale(1.35) } }
+.dot { animation: titik 1.6s ease-in-out infinite }
+
+/* 12) Garis waktu Status & Hasil: garis tergambar dari atas, titik muncul bergantian, titik selesai ber-pop */
+@keyframes garis { from { clip-path: inset(0 -20px 100% -20px) } to { clip-path: inset(0 -20px 0 -20px) } }
+.tl { animation: garis .9s ease-out }
+.tl li { animation: geser .45s ease backwards }
+.tl li:nth-child(1) { animation-delay: .10s } .tl li:nth-child(2) { animation-delay: .35s }
+.tl li:nth-child(3) { animation-delay: .60s } .tl li:nth-child(4) { animation-delay: .85s }
+.tl li.done:before { animation: pop .5s cubic-bezier(.2,.9,.3,1.3) backwards }
+.tl li:nth-child(1).done:before { animation-delay: .15s } .tl li:nth-child(2).done:before { animation-delay: .40s }
+.tl li:nth-child(3).done:before { animation-delay: .65s } .tl li:nth-child(4).done:before { animation-delay: .90s }
+
+/* 13) Hasil akhir: DITERIMA membesar lalu bersinar; kuota penuh membesar saja; tidak layak muncul tenang (tanpa perayaan) */
+@keyframes kilau { 0%, 100% { text-shadow: 0 0 0 rgba(22,163,74,0) } 50% { text-shadow: 0 0 18px rgba(22,163,74,.55) } }
+.hasil-ok { animation: pop .7s cubic-bezier(.2,.9,.3,1.3) .5s backwards, kilau 2.2s ease-in-out 1.3s 3 }
+.hasil-kuota { animation: pop .6s cubic-bezier(.2,.9,.3,1.3) .5s backwards }
+.hasil-tidak { animation: naik .6s ease .5s backwards }
+
+/* 14) Model C4.5: isi tab muncul halus, pohon keputusan tergambar baris demi baris, tombol "Melatih" berkedip */
+.tc { animation: naik .35s ease }
+@keyframes baris { from { opacity: 0; transform: translateX(-12px) } to { opacity: 1; transform: none } }
+.tree .ln { display: block; animation: baris .35s ease backwards }
+@keyframes kedip { 0%, 100% { opacity: 1 } 50% { opacity: .55 } }
+.bar button.p:disabled { animation: kedip 1s ease-in-out infinite }
+
+/* 15) Isian formulir menyala halus saat diklik; kotak pesan error bergetar singkat */
+input, select, textarea { transition: border-color .2s ease, box-shadow .2s ease }
+input:focus, select:focus, textarea:focus { border-color: var(--b); box-shadow: 0 0 0 3px rgba(96,165,250,.28); outline: none }
+@keyframes getar { 0%, 100% { transform: translateX(0) } 20% { transform: translateX(-8px) } 40% { transform: translateX(7px) } 60% { transform: translateX(-5px) } 80% { transform: translateX(3px) } }
+.note[role="alert"], #er, #fm, #lf > #er, #rg > #er { animation: getar .45s ease !important }
+
+/* Kalau perangkat meminta gerakan dikurangi, semua animasi dan transisi dimatikan */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important }
+}

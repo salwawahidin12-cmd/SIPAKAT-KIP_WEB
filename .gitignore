@@ -1,0 +1,5 @@
+storage/uploads/*.pdf
+database/tes_email.php
+uji_email.php
+tes_email.php
+*.log

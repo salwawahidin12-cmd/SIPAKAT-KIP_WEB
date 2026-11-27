@@ -1,0 +1,23 @@
+/* Dasar: warna/tema, reset, tombol, isian formulir */
+/* SIPAKAT-KIP: gaya seluruh halaman. Warna utama hijau #166534. Mendukung mode terang/gelap. */
+
+:root{--g:#166534;--g2:#14532d;--gl:#ecfdf5;--b:#1d4ed8;--bg:#f3f4f6;--card:#fff;--tx:#1f2937;--mut:#6b7280;--line:#e5e7eb;--ok:#16a34a;--no:#dc2626;--wait:#f59e0b;--fix:#ea580c;--ver:#2563eb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--tx:#e5e7eb;--mut:#94a3b8;--line:#334155;--gl:#14301f;--b:#60a5fa}}
+:root[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--tx:#e5e7eb;--mut:#94a3b8;--line:#334155;--gl:#14301f;--b:#60a5fa}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+h1,h2,h3{font-family:Poppins,sans-serif;margin:0}
+button{font:inherit;cursor:pointer;border-radius:8px;padding:9px 16px;border:1px solid transparent;font-weight:500}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+.p{background:var(--g);color:#fff}.p:hover{background:var(--g2)}
+.o{background:transparent;border-color:var(--g);color:var(--g)}
+:root[data-theme="dark"] .o{color:#86efac;border-color:#86efac}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .o{color:#86efac;border-color:#86efac}}
+.s{background:transparent;border-color:var(--b);color:var(--b)}
+.w{background:var(--fix);color:#fff}
+.d{background:var(--no);color:#fff;padding:5px 10px}
+input,select,textarea{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--tx);font:inherit}
+label{display:block;font-weight:500;margin:12px 0 4px;font-size:14px}
+.eye{position:absolute;right:6px;top:4px;background:none;border:0;padding:4px 8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button:disabled{opacity:.5;cursor:not-allowed}

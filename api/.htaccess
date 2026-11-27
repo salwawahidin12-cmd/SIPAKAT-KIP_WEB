@@ -1,0 +1,2 @@
+# Hanya endpoint .php yang boleh dipanggil; matikan daftar isi folder.
+Options -Indexes
